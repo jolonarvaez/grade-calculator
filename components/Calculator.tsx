@@ -14,26 +14,21 @@ export default function Calculator() {
       <div className="w-1/2 mx-auto">
         <div className="text-center font-bold flex flex-row text-lg">
           <div
-            className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white ${
-              school === "DLSU" ? "bg-dlsu-green" : ""
-            } ${school === "UP" ? "text-dlsu-green" : ""} ${
-              school === "ADMU" ? "text-dlsu-green" : ""
-            }`}
+            className={`transition duration-200 w-1/3 rounded-t-lg text-white py-1
+            ${school === "DLSU" ? "bg-dlsu-green" : "text-dlsu-green hover:opacity-75"}`}
           >
             <button onClick={() => changeSchool("DLSU")}>DLSU</button>
           </div>
-          <div className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white ${
-              school === "DLSU" ? "text-up-maroon" : ""
-            } ${school === "UP" ? "bg-up-maroon" : ""} ${
-              school === "ADMU" ? "text-up-maroon" : ""
-            }`}>
+          <div
+            className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white 
+             ${school === "UP" ? "bg-up-maroon" : "text-up-maroon hover:opacity-75"}`}
+          >
             <button onClick={() => changeSchool("UP")}>UP</button>
           </div>
-          <div className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white ${
-              school === "DLSU" ? "text-admu-blue" : ""
-            } ${school === "UP" ? "text-admu-blue" : ""} ${
-              school === "ADMU" ? "bg-admu-blue" : ""
-            }`}>
+          <div
+            className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white
+             ${school === "ADMU" ? "bg-admu-blue" : "text-admu-blue hover:opacity-75"}`}
+          >
             <button onClick={() => changeSchool("ADMU")}>ADMU</button>
           </div>
         </div>
