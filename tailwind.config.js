@@ -7,9 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'dlsu-green': '#00763E',
+        "dlsu-green": "#00763E",
+        "up-maroon": "#9C002E",
+        "admu-blue": "#230098",
       },
-    }
+    },
   },
   plugins: [],
-}
+};
