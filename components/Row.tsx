@@ -39,7 +39,11 @@ export default function Row(props: any) {
         />
       </div>
       <div className="w-1/3">
-        <GradeSelect selectedValue={grade} changeGrade={changeGrade} index={props.index} />
+        <GradeSelect
+          selectedValue={grade}
+          changeGrade={changeGrade}
+          index={props.index}
+        />
       </div>
     </div>
   );

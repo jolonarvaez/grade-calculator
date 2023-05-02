@@ -45,7 +45,7 @@ export default function Calculator() {
       totalGradePoints +=
         parseFloat((gradeElement as HTMLSelectElement).value) *
         parseInt((unitElement as HTMLInputElement).value);
-      const result = (totalGradePoints / totalUnits);
+      const result = totalGradePoints / totalUnits;
       setGPA(result.toFixed(3));
     });
   };
