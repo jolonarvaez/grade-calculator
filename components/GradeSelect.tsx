@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function GradeSelect() {
+export default function GradeSelect(props: any) {
   return (
     <div>
-      <select name="cars" id="cars">
+      <select
+        id={`${props.index}-grade`}
+        className="course-grade"
+        value={props.selectedValue}
+        onChange={props.changeGrade}
+      >
         <option value="4.0">4.0</option>
         <option value="3.5">3.5</option>
         <option value="3.0">3.0</option>
