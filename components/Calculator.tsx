@@ -1,11 +1,11 @@
 import React, { use, useState } from "react";
 import Row from "./Row";
-import { BsFillPlusCircleFill } from "react-icons/bs";
-import { MdOutlineDeleteOutline } from "react-icons/md";
+import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 
 export default function Calculator() {
   const [school, setSchool] = useState("DLSU");
   const [tableData, setTableData] = useState<React.ReactNode[]>([]);
+  const [gpa, setGPA] = useState("0.000");
 
   const changeSchool = (string: any) => {
     setSchool(string);
@@ -15,16 +15,39 @@ export default function Calculator() {
     const newDivs = [
       ...tableData,
       <div key={tableData.length}>
-        <Row />
+        <Row units={3} grade={0} index={tableData.length} />
       </div>,
     ];
     setTableData(newDivs);
   };
 
-  const deleteRow = (index: number) => {
+  const deleteRow = () => {
     const newDivs = [...tableData];
-    newDivs.splice(index, 1);
+    newDivs.splice(tableData.length - 1, 1);
     setTableData(newDivs);
+  };
+
+  function calculateTotalUnits() {
+    let total = 0;
+    const elements = document.querySelectorAll(".course-units");
+    elements.forEach((element) => {
+      total += parseInt((element as HTMLInputElement).value);
+    });
+    return total;
+  }
+
+  const calculateGrade = () => {
+    let totalGradePoints = 0;
+    let totalUnits = calculateTotalUnits();
+    tableData.forEach((row, index) => {
+      const gradeElement = document.getElementById(index + "-grade");
+      const unitElement = document.getElementById(index + "-units");
+      totalGradePoints +=
+        parseFloat((gradeElement as HTMLSelectElement).value) *
+        parseInt((unitElement as HTMLInputElement).value);
+      const result = (totalGradePoints / totalUnits);
+      setGPA(result.toFixed(3));
+    });
   };
 
   return (
@@ -84,14 +107,10 @@ export default function Calculator() {
           }`}
         >
           <div>
-            {tableData.map((div, index) => (
-              <div key={index}>
-               <Row onDelete={() => deleteRow(index)} />
-              </div>
-            ))}
+            <div>{tableData}</div>
           </div>
           <div
-            className={`text-3xl my-2 text-dlsu-green ${
+            className={`text-4xl my-2 text-dlsu-green w-full flex space-x-6 justify-center ${
               school === "DLSU" ? "text-dlsu-green" : ""
             } ${school === "UP" ? "text-up-maroon" : ""}${
               school === "ADMU" ? "text-admu-blue" : ""
@@ -101,16 +120,23 @@ export default function Calculator() {
               onClick={addRow}
               className="transition duration-150 hover:opacity-50"
             >
-              <BsFillPlusCircleFill />
+              <AiFillPlusCircle />
+            </button>
+            <button
+              onClick={deleteRow}
+              className="transition duration-150 hover:opacity-50"
+            >
+              <AiFillMinusCircle />
             </button>
           </div>
           <div className="flex justify-evenly m-1 ">
-            <div className="my-auto">GPA: 4.000</div>
+            <div className="my-auto">GPA: {gpa}</div>
             <button
               className={`transition duration-200 py-2 px-5 font-light text-white rounded-lg hover:opacity-75
             ${school === "DLSU" ? "bg-dlsu-green" : ""} ${
                 school === "UP" ? "bg-up-maroon" : ""
               }${school === "ADMU" ? "bg-admu-blue" : ""}`}
+              onClick={calculateGrade}
             >
               Calculate
             </button>

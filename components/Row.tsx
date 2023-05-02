@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GradeSelect from "./GradeSelect";
-import { MdOutlineDeleteOutline } from "react-icons/md";
 
 export default function Row(props: any) {
-  const [units, setUnits] = useState(0);
+  const [units, setUnits] = useState(props.units);
+  const [grade, setGrade] = useState(props.grade);
+  const [gradePoint, setGradePoint] = useState(0.0);
 
   const changeUnits = (event: any) => {
     setUnits(event.target.value);
   };
 
-  const deleteRow = () => {
-    props.onDelete();
+  const changeGrade = (event: any) => {
+    setGrade(event.target.value);
+  };
+
+  const changeGradePoint = () => {
+    setGradePoint(units * grade);
   };
 
   return (
@@ -24,9 +29,9 @@ export default function Row(props: any) {
       </div>
       <div className="w-1/3">
         <input
-          className="w-16 text-center"
+          className="w-16 text-center course-units"
           type="number"
-          id="subject-units"
+          id={`${props.index}-units`}
           name="subject-units"
           value={units}
           min="0"
@@ -34,12 +39,7 @@ export default function Row(props: any) {
         />
       </div>
       <div className="w-1/3">
-        <GradeSelect />
-      </div>
-      <div className="relative text-lg">
-        <button onClick={deleteRow}>
-          <MdOutlineDeleteOutline />
-        </button>
+        <GradeSelect selectedValue={grade} changeGrade={changeGrade} index={props.index} />
       </div>
     </div>
   );
