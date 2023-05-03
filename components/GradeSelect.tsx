@@ -6,7 +6,7 @@ export default function GradeSelect(props: any) {
       <div>
         <select
           id={`${props.index}-grade`}
-          className="course-grade"
+          className="course-grade bg-material-white"
           value={props.selectedValue}
           onChange={props.changeGrade}
         >
@@ -26,7 +26,7 @@ export default function GradeSelect(props: any) {
       <div>
         <select
           id={`${props.index}-grade`}
-          className="course-grade"
+          className="course-grade bg-material-white"
           value={props.selectedValue}
           onChange={props.changeGrade}
         >
@@ -49,7 +49,7 @@ export default function GradeSelect(props: any) {
       <div>
         <select
           id={`${props.index}-grade`}
-          className="course-grade"
+          className="course-grade bg-material-white"
           value={props.selectedValue}
           onChange={props.changeGrade}
         >

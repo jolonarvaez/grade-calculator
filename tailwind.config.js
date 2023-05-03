@@ -10,6 +10,8 @@ module.exports = {
         "dlsu-green": "#00763E",
         "up-maroon": "#9C002E",
         "admu-blue": "#230098",
+        "material-black": "#1D1D1F",
+        "material-white": "#F5F5F7"
       },
     },
   },
