@@ -23,7 +23,7 @@ export default function Row(props: any) {
     <div className="flex py-2.5 border-b my-1">
       <div className="w-1/3">
         <input
-          className="placeholder:text-sm w-32 bg-material-white"
+          className="placeholder:text-sm w-28 md:w-32 bg-material-white"
           type="text"
           placeholder="Enter Course Name"
         />
