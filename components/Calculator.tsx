@@ -63,25 +63,26 @@ export default function Calculator() {
   };
 
   return (
-    <div className="mx-auto max-w-2xl mt-4 h-80">
+    <div className="font-sans antialiased text-material-black mx-auto max-w-2xl mt-4 h-80">
       <div className="w-1/2 mx-auto">
         <div className="text-center font-bold flex flex-row text-lg">
-          <div
+          <button
             className={`transition duration-200 w-1/3 rounded-t-lg text-white py-1
             ${
               school === "DLSU"
                 ? "bg-dlsu-green"
-                : "text-dlsu-green hover:opacity-75"
+                : "shadow-inner text-dlsu-green hover:opacity-75"
             }`}
+            onClick={() => changeSchool("DLSU")}
           >
-            <button onClick={() => changeSchool("DLSU")}>DLSU</button>
-          </div>
+            <div> DLSU</div>
+          </button>
           <div
             className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white 
              ${
                school === "UP"
                  ? "bg-up-maroon"
-                 : "text-up-maroon hover:opacity-75"
+                 : "shadow-inner text-up-maroon hover:opacity-75"
              }`}
           >
             <button onClick={() => changeSchool("UP")}>UP</button>
@@ -91,7 +92,7 @@ export default function Calculator() {
              ${
                school === "ADMU"
                  ? "bg-admu-blue"
-                 : "text-admu-blue hover:opacity-75"
+                 : "shadow-inner text-admu-blue hover:opacity-75"
              }`}
           >
             <button onClick={() => changeSchool("ADMU")}>ADMU</button>
@@ -99,7 +100,7 @@ export default function Calculator() {
         </div>
       </div>
 
-      <div className="text-center rounded-lg mx-4 shadow-lg">
+      <div className="text-center rounded-lg mx-4 shadow-xl">
         <div
           className={`transition duration-200 flex flex-row text-white rounded-t-lg py-2.5 ${
             school === "DLSU" ? "bg-dlsu-green" : ""
@@ -143,9 +144,9 @@ export default function Calculator() {
           </div>
           <div className="flex justify-evenly my-3">
             <div className="my-auto text-3xl">
-              {school === "DLSU" && <div>GPA: {gpa}</div>}
-              {school === "UP" && <div>GWA: {gpa}</div>}
-              {school === "ADMU" && <div>QPI: {gpa}</div>}
+              {school === "DLSU" && <div>GPA: <span className="font-bold">{gpa}</span></div>}
+              {school === "UP" && <div>GWA: <span className="font-bold">{gpa}</span></div>}
+              {school === "ADMU" && <div>QPI: <span className="font-bold">{gpa}</span></div>}
             </div>
             <button
               className={`transition duration-200 py-2 px-5 font-light text-white rounded-lg hover:opacity-75
