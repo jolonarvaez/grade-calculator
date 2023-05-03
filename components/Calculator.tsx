@@ -14,12 +14,11 @@ export default function Calculator() {
     const newTableData = tableData.map((row, index) => {
       return (
         <div key={index}>
-          <Row units={3} grade={0} index={index} school={string}/>
+          <Row units={3} grade={0} index={index} school={string} />
         </div>
       );
     });
     setTableData(newTableData);
-
   };
 
   const addRow = () => {
@@ -37,6 +36,8 @@ export default function Calculator() {
     newDivs.splice(tableData.length - 1, 1);
     setTableData(newDivs);
   };
+
+  const gpaHolder = <div className="my-auto">GPA: {gpa}</div>;
 
   function calculateTotalUnits() {
     let total = 0;
@@ -140,11 +141,15 @@ export default function Calculator() {
               <AiFillMinusCircle />
             </button>
           </div>
-          <div className="flex justify-evenly m-1 ">
-            <div className="my-auto">GPA: {gpa}</div>
+          <div className="flex justify-evenly my-3">
+            <div className="my-auto text-3xl">
+              {school === "DLSU" && <div>GPA: {gpa}</div>}
+              {school === "UP" && <div>GWA: {gpa}</div>}
+              {school === "ADMU" && <div>QPI: {gpa}</div>}
+            </div>
             <button
               className={`transition duration-200 py-2 px-5 font-light text-white rounded-lg hover:opacity-75
-            ${school === "DLSU" ? "bg-dlsu-green" : ""} ${
+              ${school === "DLSU" ? "bg-dlsu-green" : ""} ${
                 school === "UP" ? "bg-up-maroon" : ""
               }${school === "ADMU" ? "bg-admu-blue" : ""}`}
               onClick={calculateGrade}
