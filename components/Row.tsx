@@ -4,6 +4,7 @@ import GradeSelect from "./GradeSelect";
 export default function Row(props: any) {
   const [units, setUnits] = useState(props.units);
   const [grade, setGrade] = useState(props.grade);
+  const [school, setSchool] = useState(props.school);
   const [gradePoint, setGradePoint] = useState(0.0);
 
   const changeUnits = (event: any) => {
@@ -43,6 +44,7 @@ export default function Row(props: any) {
           selectedValue={grade}
           changeGrade={changeGrade}
           index={props.index}
+          school={props.school}
         />
       </div>
     </div>

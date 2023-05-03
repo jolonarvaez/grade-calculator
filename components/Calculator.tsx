@@ -9,13 +9,24 @@ export default function Calculator() {
 
   const changeSchool = (string: any) => {
     setSchool(string);
+    setGPA("0.000");
+
+    const newTableData = tableData.map((row, index) => {
+      return (
+        <div key={index}>
+          <Row units={3} grade={0} index={index} school={string}/>
+        </div>
+      );
+    });
+    setTableData(newTableData);
+
   };
 
   const addRow = () => {
     const newDivs = [
       ...tableData,
       <div key={tableData.length}>
-        <Row units={3} grade={0} index={tableData.length} />
+        <Row units={3} grade={0} index={tableData.length} school={school} />
       </div>,
     ];
     setTableData(newDivs);
