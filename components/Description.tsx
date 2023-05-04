@@ -23,12 +23,12 @@ export default function Description() {
           <ol className="list-decimal">
             <li>Choose your desired school</li>
             <li>Press the plus icon to add a course</li>
-            <li>Fill in the course name (optiona), units, and grade</li>
+            <li>Fill in the course name (optional), units, and grade</li>
             <li>Add or remove courses until you reach the desired number</li>
             <li>Press Calculate to see your grade average</li>
           </ol>
         </div>
-        <div className="">
+        <div className="text-center">
           <div>👨‍💻 Developed by Jolo Narvaez | © 2023 All rights reserved.</div>
           <div className="flex justify-evenly text-sm">
             <div className="flex space-x-1">
