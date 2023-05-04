@@ -21,6 +21,10 @@ export default function Home() {
                   (ADMU)."
         />
         <meta
+          name="keywords"
+          content="grade calculator app, dlsu gpa calculator, up gwa calculator, amdu qpi calculator, philippine universities grade calculator"
+        />
+        <meta
           name="google-site-verification"
           content="p85mCcSwFZJ69PAVhyDe8y6XCTy497_Hruwp801ggec"
         />
