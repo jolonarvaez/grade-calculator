@@ -75,28 +75,31 @@ export default function Calculator() {
             }`}
             onClick={() => changeSchool("DLSU")}
           >
-            <div> DLSU</div>
+            <div>DLSU</div>
           </button>
-          <div
+
+          <button
             className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white 
              ${
                school === "UP"
                  ? "bg-up-maroon"
                  : "shadow-inner text-up-maroon hover:opacity-75"
              }`}
+            onClick={() => changeSchool("UP")}
           >
-            <button onClick={() => changeSchool("UP")}>UP</button>
-          </div>
-          <div
+            <div>UP</div>
+          </button>
+          <button
             className={`transition duration-200 w-1/3 py-1 rounded-t-lg text-white
              ${
                school === "ADMU"
                  ? "bg-admu-blue"
                  : "shadow-inner text-admu-blue hover:opacity-75"
              }`}
+            onClick={() => changeSchool("ADMU")}
           >
-            <button onClick={() => changeSchool("ADMU")}>ADMU</button>
-          </div>
+            <div>ADMU</div>
+          </button>
         </div>
       </div>
 
@@ -144,9 +147,21 @@ export default function Calculator() {
           </div>
           <div className="flex justify-evenly my-3">
             <div className="my-auto text-3xl">
-              {school === "DLSU" && <div>GPA: <span className="font-bold">{gpa}</span></div>}
-              {school === "UP" && <div>GWA: <span className="font-bold">{gpa}</span></div>}
-              {school === "ADMU" && <div>QPI: <span className="font-bold">{gpa}</span></div>}
+              {school === "DLSU" && (
+                <div>
+                  GPA: <span className="font-bold">{gpa}</span>
+                </div>
+              )}
+              {school === "UP" && (
+                <div>
+                  GWA: <span className="font-bold">{gpa}</span>
+                </div>
+              )}
+              {school === "ADMU" && (
+                <div>
+                  QPI: <span className="font-bold">{gpa}</span>
+                </div>
+              )}
             </div>
             <button
               className={`transition duration-200 py-2 px-5 font-light text-white rounded-lg hover:opacity-75
