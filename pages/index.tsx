@@ -1,12 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
-import { Inter } from "@next/font/google";
-import DLSU from "../components/Calculator";
 import Calculator from "../components/Calculator";
 import Description from "../components/Description";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
