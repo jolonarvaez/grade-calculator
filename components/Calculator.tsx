@@ -6,10 +6,12 @@ export default function Calculator() {
   const [school, setSchool] = useState("DLSU");
   const [tableData, setTableData] = useState<React.ReactNode[]>([]);
   const [gpa, setGPA] = useState("0.000");
+  const [honors, setHonors] = useState("");
 
   const changeSchool = (string: any) => {
     setSchool(string);
     setGPA("0.000");
+    setHonors("");
 
     const newTableData = tableData.map((row, index) => {
       return (
@@ -51,15 +53,39 @@ export default function Calculator() {
   const calculateGrade = () => {
     let totalGradePoints = 0;
     let totalUnits = calculateTotalUnits();
+
     tableData.forEach((row, index) => {
       const gradeElement = document.getElementById(index + "-grade");
       const unitElement = document.getElementById(index + "-units");
       totalGradePoints +=
         parseFloat((gradeElement as HTMLSelectElement).value) *
         parseInt((unitElement as HTMLInputElement).value);
-      const result = totalGradePoints / totalUnits;
-      setGPA(result.toFixed(3));
     });
+
+    const result = totalGradePoints / totalUnits;
+    setGPA(result.toFixed(3));
+
+    switch (school) {
+      case "DLSU":
+        if (result >= 3.0 && result < 3.4) {
+          setHonors("Second Dean's Lister 🎉");
+        } else if (result >= 3.4) {
+          setHonors("First Dean's Lister 🎊");
+        }
+        break;
+      case "UP":
+        if (result <= 1.75 && result > 1.45) {
+          setHonors("College Scholar 🎉");
+        } else if (result <= 1.45) {
+          setHonors("University Scholar 🎊");
+        }
+      case "ADMU":
+        if (result >= 3.35 && result < 3.7) {
+          setHonors("Second Honors 🎉");
+        } else if (result >= 3.7) {
+          setHonors("First Honors 🎊");
+        }
+    }
   };
 
   return (
@@ -145,7 +171,7 @@ export default function Calculator() {
               <AiFillMinusCircle />
             </button>
           </div>
-          <div className="flex justify-evenly my-3">
+          <div className="flex justify-evenly">
             <div className="my-auto text-3xl">
               {school === "DLSU" && (
                 <div>
@@ -172,6 +198,15 @@ export default function Calculator() {
             >
               Calculate
             </button>
+          </div>
+          <div
+            className={`my-2 text-dlsu-green font-bold ${
+              school === "DLSU" ? "text-dlsu-green" : ""
+            } ${school === "UP" ? "text-up-maroon" : ""}${
+              school === "ADMU" ? "text-admu-blue" : ""
+            }`}
+          >
+            {honors}
           </div>
         </div>
       </div>
