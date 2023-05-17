@@ -71,6 +71,8 @@ export default function Calculator() {
           setHonors("Second Dean's Lister 🎉");
         } else if (result >= 3.4) {
           setHonors("First Dean's Lister 🎊");
+        } else {
+          setHonors("");
         }
         break;
       case "UP":
@@ -78,12 +80,17 @@ export default function Calculator() {
           setHonors("College Scholar 🎉");
         } else if (result <= 1.45) {
           setHonors("University Scholar 🎊");
+        } else {
+          setHonors("");
         }
+        break;
       case "ADMU":
         if (result >= 3.35 && result < 3.7) {
           setHonors("Second Honors 🎉");
         } else if (result >= 3.7) {
           setHonors("First Honors 🎊");
+        } else {
+          setHonors("");
         }
     }
   };
