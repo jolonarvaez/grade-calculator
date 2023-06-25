@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         "dlsu-green": "#00763E",
-        "up-maroon": "#9C002E",
+        "up-maroon": "#7B1113",
         "admu-blue": "#230098",
         "material-black": "#1D1D1F",
         "material-white": "#F5F5F7"

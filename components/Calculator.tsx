@@ -96,7 +96,7 @@ export default function Calculator() {
   };
 
   return (
-    <div className="font-sans antialiased text-material-black mx-auto max-w-2xl mt-4 h-80">
+    <div className="font-sans antialiased mx-auto max-w-2xl my-4">
       <div className="w-1/2 mx-auto">
         <div className="text-center font-bold flex flex-row text-lg">
           <button
@@ -197,7 +197,7 @@ export default function Calculator() {
               )}
             </div>
             <button
-              className={`transition duration-200 py-2 px-5 font-light text-white rounded-lg hover:opacity-75
+              className={`transition duration-200 py-2 px-5 text-white rounded-lg hover:opacity-75
               ${school === "DLSU" ? "bg-dlsu-green" : ""} ${
                 school === "UP" ? "bg-up-maroon" : ""
               }${school === "ADMU" ? "bg-admu-blue" : ""}`}
@@ -207,11 +207,7 @@ export default function Calculator() {
             </button>
           </div>
           <div
-            className={`my-2 text-dlsu-green font-bold ${
-              school === "DLSU" ? "text-dlsu-green" : ""
-            } ${school === "UP" ? "text-up-maroon" : ""}${
-              school === "ADMU" ? "text-admu-blue" : ""
-            }`}
+            className={`my-2 font-bold `}
           >
             {honors}
           </div>
