@@ -1,9 +1,15 @@
 import Head from "next/head";
-import React from "react";
+import React, { useState, createContext } from "react";
 import Calculator from "../components/Calculator";
 import Description from "../components/Description";
+import { Switch } from "@headlessui/react";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 export default function Home() {
+  const [enabled, setEnabled] = useState(true);
+
+ 
+
   return (
     <>
       <Head>
@@ -26,8 +32,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Description />
-      <Calculator />
+
+      <div className={`h-screen transition`}>
+        <ThemeSwitch />
+        <Description />
+        <Calculator />
+      </div>
     </>
   );
 }

@@ -2,7 +2,7 @@ import { BsLinkedin, BsGithub } from "react-icons/bs";
 
 export default function Description() {
   return (
-    <div className="font-sans text-material-black space-y-4 p-4 w-4/5 md:w-3/5 mx-auto">
+    <div className="font-sans space-y-4 p-4 w-4/5 md:w-3/5 mx-auto transition">
       <div className="text-center text-4xl underline underline-offset-4">
         Grade Calculator
       </div>

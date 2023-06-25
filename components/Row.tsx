@@ -23,14 +23,14 @@ export default function Row(props: any) {
     <div className="flex py-2.5 border-b my-1">
       <div className="w-1/3">
         <input
-          className="placeholder:text-sm w-28 md:w-32 bg-material-white"
+          className="placeholder:text-sm w-28 md:w-32"
           type="text"
           placeholder="Enter Course Name"
         />
       </div>
       <div className="w-1/3">
         <input
-          className="w-16 text-center course-units bg-material-white"
+          className="w-16 text-center course-units"
           type="number"
           id={`${props.index}-units`}
           name="subject-units"
