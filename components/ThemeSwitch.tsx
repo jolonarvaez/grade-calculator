@@ -21,6 +21,12 @@ const ThemeSwitch = () => {
 
   useEffect(() => {
     setMounted(true)
+    if(theme === 'light'){
+        setEnabled(false)
+    }
+    else{
+        setEnabled(true)
+    }
   }, [])
 
   if (!mounted) {
